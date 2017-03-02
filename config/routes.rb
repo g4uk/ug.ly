@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :links
+  match 'shorten', to: 'links#shorten', via: :post
+
   root 'page#index'
 end

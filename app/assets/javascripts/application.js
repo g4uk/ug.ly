@@ -15,12 +15,28 @@
 //= require turbolinks
 //= require materialize-sprockets
 //= require materialize-form
+//= require toastr
 //= require_tree .
 
 (function($){
   $(function(){
 
     $('.button-collapse').sideNav();
+
+    toastr.options = {
+      "closeButton": false,
+      "debug": false,
+      "positionClass": "toast-bottom-right",
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
 
   }); // end of document ready
 })(jQuery); // end of jQuery name space

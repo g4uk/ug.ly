@@ -55,3 +55,6 @@ gem 'simple_form'
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'materialize-form'
+
+gem 'toastr-rails'
+gem 'rails-i18n'
