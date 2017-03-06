@@ -28,6 +28,6 @@ en:
             url:
               blank: "Url can't be blank"
               invalid: "Bad url!"
-  link:
+  links:
     shorten:
       success: 'Phew! It short.'

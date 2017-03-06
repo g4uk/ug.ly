@@ -16,8 +16,14 @@ ActiveRecord::Schema.define(version: 20170301212006) do
   enable_extension "plpgsql"
 
   create_table "links", force: :cascade do |t|
+    t.string   "ugly_path",  null: false
+    t.string   "url",        null: false
+    t.string   "url_md5",    null: false
+    t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ugly_path"], name: "index_links_on_ugly_path", unique: true, using: :btree
+    t.index ["url_md5"], name: "index_links_on_url_md5", unique: true, using: :btree
   end
 
 end

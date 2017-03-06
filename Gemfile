@@ -58,3 +58,5 @@ gem 'materialize-form'
 
 gem 'toastr-rails'
 gem 'rails-i18n'
+gem 'bcrypt'
+gem 'zeroclipboard-rails'
