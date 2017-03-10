@@ -4,6 +4,8 @@ class Link < ApplicationRecord
   validates_uniqueness_of :ugly_path
   validates_uniqueness_of :url_md5
 
+  has_many :stats
+
   before_create :parse_url_response
   before_create :generate_ugly_path
 

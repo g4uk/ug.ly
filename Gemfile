@@ -60,3 +60,8 @@ gem 'toastr-rails'
 gem 'rails-i18n'
 gem 'bcrypt'
 gem 'zeroclipboard-rails'
+
+gem 'geocoder'
+gem 'referer-parser'
+gem 'browser'
+gem 'user_agent_parser'

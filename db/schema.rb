@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301212006) do
+ActiveRecord::Schema.define(version: 20170306235419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,25 @@ ActiveRecord::Schema.define(version: 20170301212006) do
     t.datetime "updated_at", null: false
     t.index ["ugly_path"], name: "index_links_on_ugly_path", unique: true, using: :btree
     t.index ["url_md5"], name: "index_links_on_url_md5", unique: true, using: :btree
+  end
+
+  create_table "stats", force: :cascade do |t|
+    t.integer  "link_id"
+    t.string   "source"
+    t.string   "domain"
+    t.cidr     "remote_ip"
+    t.string   "country"
+    t.string   "state"
+    t.string   "city"
+    t.boolean  "direct"
+    t.string   "browser_name"
+    t.string   "browser_version"
+    t.boolean  "bot"
+    t.string   "device_name"
+    t.string   "os"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["link_id"], name: "index_stats_on_link_id", using: :btree
   end
 
 end
