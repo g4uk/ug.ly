@@ -1,0 +1,15 @@
+<% javascript 'links' %>
+
+<br><br>
+<h1 class="header center orange-text">Ug.ly</h1>
+<div class="row center">
+  <h5 class="header col s12 light">Make your links manageable.</h5>
+</div>
+<div class="row center">
+  <!-- , autocomplete: 'off' -->
+  <%= simple_form_for(@link, html: { novalidate: true }, :url => shorten_path, :method => :post) do |f| %>
+    <%= f.input :url, as: 'string', wrapper_html: { class: 's10 input-field' }, placeholder: 'Paste a link to shorten it', label: false %>
+    <%= f.button :submit, 'shorten', class: 'col s2' %>
+  <% end %>
+</div>
+<%= render partial: "shorten_link" %>

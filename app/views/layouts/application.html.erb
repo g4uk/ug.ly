@@ -6,11 +6,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield(:head) %>
   </head>
 
   <body>
     <nav role="navigation">
-      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <div class="nav-wrapper container"><a id="logo-container" href="<%= root_url %>" class="brand-logo">Logo</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="#">Navbar Link</a></li>
         </ul>

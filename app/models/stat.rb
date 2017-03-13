@@ -1,6 +1,8 @@
 class Stat < ApplicationRecord
   belongs_to :link
 
+  scope :duration_from, ->(duration){ where('created_at > ?', Time.zone.today - duration ) }
+
   def self.add remote_ip, referer, user_agent
     attributes = { direct: referer.nil? }
 

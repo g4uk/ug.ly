@@ -1,5 +1,5 @@
 class RedirectsController < ApplicationController
-  VISITOR_COOKIES_KEY = :ug_ly
+  VISITOR_COOKIES_KEY_PREFIX = :ug_ly
 
   def redirect_permanently
     permitted_params = params.permit(:shorten_path)
@@ -21,10 +21,14 @@ class RedirectsController < ApplicationController
 
     def set_cookies
       unless browser.bot?
-        unless cookies[VISITOR_COOKIES_KEY].present?
-          cookies.permanent[VISITOR_COOKIES_KEY] = SecureRandom.uuid
+        unless cookies[ get_cookie_key ].present?
+          cookies.permanent[ get_cookie_key ] = SecureRandom.uuid
         end
       end
+    end
+
+    def get_cookie_key
+      "#{VISITOR_COOKIES_KEY_PREFIX}_#{@link.ugly_path}"
     end
 
     def new_visit?
@@ -32,6 +36,6 @@ class RedirectsController < ApplicationController
     end
 
     def existing_visit_id
-      request.cookies[VISITOR_COOKIES_KEY.to_s]
+      request.cookies[ get_cookie_key ]
     end
 end

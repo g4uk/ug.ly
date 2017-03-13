@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   match ':shorten_path+', to: 'stats#show', via: :get
   match ':shorten_path', to: 'redirects#redirect_permanently', via: :get
 
-  root 'page#index'
+  root 'links#index'
 end

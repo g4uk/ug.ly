@@ -1,1 +1,62 @@
-test
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+<% javascript 'stats' %>
+
+<div class="col s12">
+  <div class="row">
+    <div class="col s12">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Analytics data for <a href="<%= "#{root_url}#{@link.ugly_path}"%>" target="_blank"><%= "#{root_url}#{@link.ugly_path}" %></a></span>
+          <p>Created <%= time_ago_in_words(@link.created_at) %> ago</p>
+          <p>Original URL: <a href="<%= @link.url %>"><%= @link.url %></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12">
+    <div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>Total clicks: <b><%= @stats.count %></b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12">
+    <div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+          <%= line_chart @stats.group_by_day(:created_at).count %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12">
+    <div class="row">
+        <div class="col s6">
+          <p>Referrers</p>
+          <%= pie_chart @stats.group(:source).count %>
+        </div>
+        <div class="col s6">
+          <p>Browsers</p>
+          <%= pie_chart @stats.group(:browser_name).count %>
+        </div>
+    </div>
+  </div>
+
+  <div class="col s12">
+    <div class="row">
+        <div class="col s6">
+          <p>Countries</p>
+          <%= geo_chart @stats.group(:country).count %>
+        </div>
+        <div class="col s6">
+          <p>Operating Systems</p>
+          <%= bar_chart @stats.group(:os).count %>
+        </div>
+    </div>
+  </div>
+</div>

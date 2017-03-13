@@ -16,8 +16,6 @@
 //= require materialize-sprockets
 //= require materialize-form
 //= require toastr
-//= require zeroclipboard
-//= require_tree .
 
 (function($){
   $(function(){
@@ -38,8 +36,6 @@
       "showMethod": "fadeIn",
       "hideMethod": "fadeOut"
     };
-
-    var clip = new ZeroClipboard($("#d_clip_button"));
 
   }); // end of document ready
 })(jQuery); // end of jQuery name space
