@@ -18,7 +18,7 @@
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-          <p>Total clicks: <b><%= @stats.count %></b></p>
+          <p>Total clicks: <b><%= @total_clicks %></b></p>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-          <%= line_chart @stats.group_by_day(:created_at).count %>
+          <%= line_chart @time_chart_data %>
         </div>
       </div>
     </div>
@@ -38,11 +38,11 @@
     <div class="row">
         <div class="col s6">
           <p>Referrers</p>
-          <%= pie_chart @stats.group(:source).count %>
+          <%= pie_chart @referrers_chart_data %>
         </div>
         <div class="col s6">
           <p>Browsers</p>
-          <%= pie_chart @stats.group(:browser_name).count %>
+          <%= pie_chart @browsers_chart_data %>
         </div>
     </div>
   </div>
@@ -51,11 +51,11 @@
     <div class="row">
         <div class="col s6">
           <p>Countries</p>
-          <%= geo_chart @stats.group(:country).count %>
+          <%= geo_chart @geo_chart_data %>
         </div>
         <div class="col s6">
           <p>Operating Systems</p>
-          <%= bar_chart @stats.group(:os).count %>
+          <%= bar_chart @os_chart_data %>
         </div>
     </div>
   </div>
