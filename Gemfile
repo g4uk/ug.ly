@@ -67,3 +67,9 @@ gem 'browser'
 gem 'user_agent_parser'
 gem 'chartkick'
 gem 'groupdate'
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'factory_girl'
+  gem 'shoulda'
+end

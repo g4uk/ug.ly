@@ -6,8 +6,7 @@
   <h5 class="header col s12 light">Make your links manageable.</h5>
 </div>
 <div class="row center">
-  <!-- , autocomplete: 'off' -->
-  <%= simple_form_for(@link, html: { novalidate: true }, :url => shorten_path, :method => :post) do |f| %>
+  <%= simple_form_for(@link, html: { novalidate: true, autocomplete: 'off' }, :url => shorten_path, :method => :post) do |f| %>
     <%= f.input :url, as: 'string', wrapper_html: { class: 's10 input-field' }, placeholder: 'Paste a link to shorten it', label: false %>
     <%= f.button :submit, 'shorten', class: 'col s2' %>
   <% end %>
